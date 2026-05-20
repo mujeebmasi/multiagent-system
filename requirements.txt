@@ -1,0 +1,54 @@
+# Core LangChain Ecosystem
+langchain
+langchain-core
+langchain-community
+langgraph
+
+# OpenAI
+openai
+langchain-openai
+
+# Gemini
+google-generativeai
+langchain-google-genai
+
+# Groq
+groq
+langchain-groq
+
+# Mistral
+mistralai
+langchain-mistralai
+
+# Environment Variables
+python-dotenv
+
+# Web Search
+tavily
+tavily-python
+
+# Web Scraping
+beautifulsoup4
+requests
+lxml
+
+# Backend
+fastapi
+uvicorn
+
+# Validation
+pydantic
+
+# Tokenizers
+tiktoken
+
+# Async / HTTP
+aiohttp
+httpx
+
+# Logging / CLI
+rich
+
+# Optional Development
+ipykernel
+jupyter
