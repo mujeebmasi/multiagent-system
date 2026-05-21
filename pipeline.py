@@ -5,9 +5,9 @@ from rich import print
 def run_pipeline(topic: str) -> dict:
     state = {}
     #search agent working
-    print("\n"+" =*50")
+    print("===============================================")
     print("Step 1:search agent is working...")
-    print("=*50")
+    print("===============================================")
 
     search_agent = build_search_agent()
     search_result = search_agent.invoke({
@@ -15,7 +15,7 @@ def run_pipeline(topic: str) -> dict:
     })
     
     state["search_result"] = search_result["messages"][-1].content
-    print("\n"+" =*50")
+    print("===============================================")
     print(state["search_result"])
     
     
@@ -31,9 +31,9 @@ def run_pipeline(topic: str) -> dict:
 
 
     #reader agent working
-    print("\n"+" =*50")
+    print("===============================================")
     print("Step 2:reader agent is working...")
-    print("=*50")
+    print("===============================================")
     
     reader_agent = build_search_reader_agent()
     reader_result = reader_agent.invoke({
@@ -45,13 +45,13 @@ def run_pipeline(topic: str) -> dict:
     })
     
     state["scraped_result"] = reader_result["messages"][-1].content
-    print("\n"+" =*50")
+    print("===============================================")
     print("\nScraped Result:",state["scraped_result"])
     
     #writer chain working
-    print("\n"+" =*50")
+    print("===============================================")
     print("Step 3:writer chain is working...") 
-    print("=*50")
+    print("===============================================")
     
     research_combined = (
         f"SEARCH RESULTS:\n{state['search_result']}\n\n"
@@ -62,14 +62,14 @@ def run_pipeline(topic: str) -> dict:
         "research": research_combined
     })
     
-    print("\n"+" =*50")
+    print("===============================================")
     print("\nGenerated Report:\n",state['report'])
     
     state['feedback'] = critic_chain.invoke({
         "report": state['report']
     })  
     
-    print("\n"+" =*50")
+    print("===============================================")
     print("\nStep 4: Critique of the Report:\n",state['feedback'])
     
     return state
